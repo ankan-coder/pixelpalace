@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  top: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  display: flex;
+  background: #fcf6f5;
+  color: #2bae66;
+  user-select: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  position: relative;
+  font-size: 25px;
+  color: #2bae66;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  height: 95vh;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 8%;
+  padding-right: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header .navbar{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header .navbar .options a{
+  color: #2bae66;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.home .home-content {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.home .home-content .image {
+  height: 100%;
+  margin-right: auto;
+}
+
+.home .home-content h1 {
+  position: relative;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home .home-content p { 
+  font-size: 16px;
+  max-width: 600px;
+  font-size: 23px;
+  margin: 20px 0 40px;
+}
+
+.home .image img {
+  height: 350px;
+  margin-left: 70px;
+}
+
+.home .home-content .btn{
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.home .home-content .btn a{
+  text-decoration: none;
+  font-size: 20px;
+  background: #2bae66;
+  color: #fcf6f5;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.home .home-content .btn :hover{
+  padding: 6px;
+  color: #2bae66;
+  background: #fcf6f5;
+  border: 2px solid #2bae66;
+  overflow: hidden;
+  transition: 0.2s ease;
+}

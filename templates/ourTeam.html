@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='CSS/ourteam.css') }}"
+    />
+    <title>PixelPalace.</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="/home" class="logo">PixelPalace.</a>
+        <div class="options">
+          <a href="{{ url_for('aboutUs') }}">About Us</a>
+        </div>
+      </nav>
+    </header>
+    <section class="home">
+      <div class="home-content">
+        <h1>Our Team</h1>
+        <div class="members">
+          <div class="details">
+            <div class="img">
+              <img
+                src="{{ url_for('static', filename='Images/Amit.jpg') }}"
+                alt="Amit"
+              />
+            </div>
+            <div class="info">
+              <h2>Amit Kumar Mondol</h2>
+              <h3>Roll number - 12500121131</h3>
+            </div>
+          </div>
+          <div class="details">
+            <div class="img">
+              <img
+                src="{{ url_for('static', filename='Images/Ankan.jpeg') }}"
+                alt="Ankan"
+              />
+            </div>
+            <div class="info">
+              <h2>Ankan Chakraborty</h2>
+              <h3>Roll number - 12500122192</h3>
+            </div>
+          </div>
+          <div class="details">
+            <div class="img">
+              <img
+                src="{{ url_for('static', filename='Images/Ruhi.jpg') }}"
+                alt="Raitri"
+              />
+            </div>
+            <div class="info">
+              <h2>Raitri Mallick</h2>
+              <h3>Roll number - 12500121116</h3>
+            </div>
+          </div>
+          <div class="details">
+            <div class="img">
+              <img src="{{ url_for('static', filename='Images/Supratik.jpg') }}" alt="Supratik" />
+            </div>
+            <div class="info">
+              <h2>Supratik Maji</h2>
+              <h3>Roll number - 12500121088</h3>
+            </div>
+          </div>
+          <div class="details">
+            <div class="img">
+              <img src="{{ url_for('static', filename='Images/Subhajit.jpg') }}" alt="Subhajit" />
+            </div>
+            <div class="info">
+              <h2>Subhajit Kar</h2>
+              <h3>Roll number - 12500121096</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

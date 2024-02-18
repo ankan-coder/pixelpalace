@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='CSS/gallery.css') }}"
+    />
+    <title>Images</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a class="logo">PixelPalace.</a>
+
+        <!-- Logout Button  -->
+        <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+      </nav>
+    </header>
+
+    <section class="gallery">
+      <h1>Welcome {{ username }}, feel free to upload your photos!</h1>
+
+      <!-- Upload option  -->
+      <form
+        id="upload-form"
+        method="POST"
+        action="/gallery"
+        enctype="multipart/form-data"
+        style="display: none"
+      >
+        <input
+          type="file"
+          name="image"
+          id="file-input"
+          accept=".png, .jpg, .jpeg, .gif"
+          multiple
+        />
+      </form>
+
+      <!-- Open browse menu on image click -->
+      <img
+        class="upload-image"
+        src="{{ url_for('static', filename='Images/plus.png') }}"
+        alt="Upload Image"
+        onclick="document.getElementById('file-input').click()"
+      />
+
+      <!-- Context Menu -->
+      <div id="context-menu" class="context-menu">
+        <ul>
+          <li onclick="deleteImage()">Delete</li>
+        </ul>
+      </div>
+
+      <!-- JavaScript code to automatically submit the form on file selection -->
+      <script>
+        document
+          .getElementById("file-input")
+          .addEventListener("change", function () {
+            document.getElementById("upload-form").submit();
+          });
+
+        let clickedImage = null;
+
+        function showContextMenu(event) {
+          event.preventDefault();
+
+          // Show the context menu at the clicked location
+          const contextMenu = document.getElementById("context-menu");
+          contextMenu.style.left = `${event.pageX}px`;
+          contextMenu.style.top = `${event.pageY}px`;
+          contextMenu.style.display = "block";
+
+          // Store the clicked image element for future reference
+          clickedImage = event.target;
+        }
+
+        function deleteImage() {
+          const contextMenu = document.getElementById("context-menu");
+
+          // Retrieve the image filename
+          const imageFilename = clickedImage.alt;
+
+          // Delete the image from the gallery on the client-side
+          const galleryItem = clickedImage.parentElement;
+          galleryItem.remove();
+
+          // Send an AJAX request to delete the image on the server-side
+          fetch("/delete", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `filename=${imageFilename}`,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                // Image deleted successfully
+                console.log("Image deleted successfully");
+              } else {
+                // Failed to delete image
+                console.error("Failed to delete image");
+              }
+            })
+            .catch((error) => {
+              console.error("Error occurred during image deletion:", error);
+            });
+
+          // Hide the context menu
+          contextMenu.style.display = "none";
+        }
+      </script>
+
+      <!-- Gallery  -->
+      <div class="gallery-container">
+        {% for image_file in image_files %}
+        <div class="gallery-item">
+          <img
+            src="{{ url_for('static', filename='uploads/' + session['username'] + '/' + image_file) }}"
+            alt="{{ image_file }}"
+            oncontextmenu="showContextMenu(event)"
+          />
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>

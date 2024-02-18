@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/login.css') }}">
+    <title>PixelPalace Login.</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/home" class="logo">PixelPalace</a>
+    </header>
+
+    <section class="container">
+        <div class="image">
+            <img src="{{ url_for('static', filename='Images/login.png') }}" alt="" />
+        </div>
+        <div class="form">
+            <h1>PixelPalace - Log In</h1>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert">
+                    <span class="message">{{ message }}</span>
+                    <button class="close-btn">&times;</button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="/login">
+                {{ form.csrf_token }}
+
+                <div class="form-content">
+                    <div class="input-wrapper">
+                        {{ form.username.label }}
+                        {{ form.username }}
+                    </div>
+                    <div class="input-wrapper">
+                        {{ form.password.label }}
+                        {{ form.password }}
+                    </div>
+
+                    <div class="btn">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+
+                    <div class="util">
+                        <!-- <a href="forgot-password.html">Forgot Password?</a> -->
+                        <a href="{{ url_for('signup') }}">Not Registered? Create account</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+        // JavaScript to handle alert dismissal
+        const closeBtns = document.querySelectorAll('.close-btn');
+
+        closeBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const alert = btn.parentNode;
+                alert.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

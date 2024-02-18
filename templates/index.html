@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='CSS/index.css') }}"
+    />
+    <title>PixelPalace.</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a class="logo">PixelPalace.</a>
+
+        <div class="options">
+          <a href="{{ url_for('aboutUs') }}">About Us</a>
+          <a href="{{ url_for('ourTeam') }}">Our Team</a>
+        </div>
+      </nav>
+    </header>
+    <section class="home">
+      <div class="home-content">
+        <h1>Welcome to PixelPalace.</h1>
+        <h2>The platform that allows to upload and view images.</h2>
+        <p>
+          Welcome to PixelPalace, your exclusive visual haven! Join our
+          community to showcase and share your captivating photos. With
+          PixelPalace, you can curate and exhibit your cherished moments in a
+          breathtaking digital gallery. Explore the endless possibilities and
+          immerse yourself in the world of visual artistry. Unleash your
+          creativity and join PixelPalace today!
+        </p>
+        <div class="btn">
+          <a href="{{ url_for('signup') }}">JOIN US</a>
+          <a href="{{ url_for('login') }}">SIGN IN</a>
+        </div>
+      </div>
+
+      <div class="image">
+        <img
+          src="{{ url_for('static', filename='Images/index-image.png') }}"
+          alt=""
+        />
+      </div>
+    </section>
+  </body>
+</html>
