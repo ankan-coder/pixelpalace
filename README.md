@@ -1,98 +1,74 @@
-PixelPalace
 
-PixelPalace is a Python Flask-based web application that allows users to upload and delete photos. This project demonstrates the use of Flask for web development, along with integration of user authentication and photo management features.
+# PixelPalace
 
-Features
+PixelPalace is a Python Flask-based application that allows users to add and delete photos seamlessly. This project uses Flask for web development and several other essential Python libraries.
 
-Add photos to the platform.
+## Features
+- Add photos to your gallery.
+- Delete photos from your gallery.
+- Secure user authentication.
+- Email validation for user inputs.
 
-Delete photos as needed.
+## Requirements
 
-Secure user authentication with password hashing.
+Before running the project, ensure you have the following installed:
 
-Requirements
+1. Python (3.6 or higher)
+2. Pip (Python package manager)
 
-To run PixelPalace, the following dependencies must be installed:
+Required Python packages (install via pip):
+- `flask`
+- `flask-wtf`
+- `passlib`
+- `email-validator`
 
-Python 3.8 or later
+## Installation
 
-Flask
+Follow these steps to set up the project:
 
-Flask-WTF
+1. **Clone the Repository**  
+   Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/pixelPalace.git
+   cd pixelPalace
+   ```
 
-Passlib
+2. **Create a Virtual Environment**  
+   Create and activate a virtual environment to manage dependencies:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On macOS/Linux
+   venv\Scripts\activate      # On Windows
+   ```
 
-Email Validator
+3. **Install Dependencies**  
+   Install the required Python packages:
+   ```bash
+   pip install flask flask-wtf passlib email-validator
+   ```
 
-Installation
+4. **Run the Application**  
+   Start the Flask development server:
+   ```bash
+   flask run
+   ```
 
-Clone the Repository
+   The application will be accessible at `http://127.0.0.1:5000`.
 
-git clone https://github.com/your-username/pixelPalace.git
-cd pixelPalace
+## Usage
 
-Set Up a Virtual Environment (Optional but Recommended)
+- Visit the home page of PixelPalace.
+- Add photos to your gallery using the upload feature.
+- Delete photos as needed with the delete option.
 
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+## Troubleshooting
 
-Install Dependencies
-Install the required Python packages using pip:
+- If you encounter the error `Exception: Install 'email_validator' for email validation support`, make sure you have installed `email-validator` using pip.
 
-pip install flask flask-wtf passlib email-validator
+## Contributing
 
-Run the Application
-Start the Flask development server:
+Feel free to contribute to PixelPalace! Fork the repository, create a new branch, and submit a pull request with your changes.
 
-flask run
-
-The application will be accessible at http://127.0.0.1:5000/.
-
-Usage
-
-Adding Photos
-
-Log in to the application.
-
-Navigate to the "Add Photo" section.
-
-Upload your desired photo.
-
-Deleting Photos
-
-View your uploaded photos.
-
-Select the photo you want to delete.
-
-Confirm the deletion.
-
-Project Structure
-
-app.py: The main application file.
-
-templates/: Directory containing HTML templates.
-
-static/: Directory for static files (e.g., CSS, JavaScript, images).
-
-requirements.txt: List of dependencies for the project.
-
-Dependencies
-
-The following Python packages are required:
-
-Flask: Web framework for building the application.
-
-Flask-WTF: For handling forms securely.
-
-Passlib: For secure password hashing.
-
-Email Validator: To validate email addresses in forms.
-
-# License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-# Acknowledgments
-
-Special thanks to the developers and contributors of Flask and its extensions for making web development in Python seamless.
-
