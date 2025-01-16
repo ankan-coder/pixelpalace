@@ -3,3 +3,4 @@ flask
 flask-wtf
 passlib
 email-validator
+gunicorn
